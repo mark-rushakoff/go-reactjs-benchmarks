@@ -34,7 +34,7 @@ var (
 
 func init() {
 	initOtto13()
-	// initOtto14()
+	initOtto14()
 }
 
 func initOtto13() {
@@ -67,7 +67,6 @@ func BenchmarkOttoLoadReact013(b *testing.B) {
 }
 
 func BenchmarkOttoLoadReact014(b *testing.B) {
-	b.Skip("otto cannot yet handle React 0.14")
 	reactSrc := react0143Source()
 	domServerSrc := reactDOMServer0143Source()
 	b.ResetTimer()
@@ -87,7 +86,6 @@ func TestOttoReact013RenderDiv(t *testing.T) {
 }
 
 func TestOttoReact014RenderDiv(t *testing.T) {
-	t.Skip("otto cannot yet handle React 0.14")
 	e := otto014.Clone()
 	testRenderDiv(t, e, render014Div)
 }
@@ -111,7 +109,6 @@ func BenchmarkOttoReact013RunRenderDiv(b *testing.B) {
 }
 
 func BenchmarkOttoReact014RunRenderDiv(b *testing.B) {
-	b.Skip("otto cannot yet handle React 0.14")
 	e := otto014.Clone()
 	b.ResetTimer()
 
@@ -128,7 +125,6 @@ func TestOttoReact013RenderComponents(t *testing.T) {
 }
 
 func TestOttoReact014RenderComponents(t *testing.T) {
-	t.Skip("otto cannot yet handle React 0.14")
 	e := otto014.Clone()
 	if err := e.Load(componentSource()); err != nil {
 		t.Error("Error executing `components.js` script file", err)
@@ -168,7 +164,6 @@ func BenchmarkOttoReact013RenderComponents(b *testing.B) {
 }
 
 func BenchmarkOttoReact014RenderComponents(b *testing.B) {
-	b.Skip("otto cannot yet handle React 0.14")
 	e := otto014.Clone()
 	_ = e.Load(componentSource())
 	b.ResetTimer()
